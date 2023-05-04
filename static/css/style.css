@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen&family=Oxygen+Mono&family=Roboto:wght@700&display=swap');
+
+* {
+    font-family: "Roboto";
+    font-weight: 700;
+}
+.container-custom {
+    width:100%;
+    padding-right: var(--bs-gutter-x, 0.75rem);
+    padding-left: var(--bs-gutter-x, 0.75rem);
+    margin-right: auto;
+    margin-left: auto;
+}
+.page_title {
+    padding: 30px 0px;
+}
+.page_title h1 {
+    color: #c0392b;
+    font-weight: 700;
+    line-height: 2;
+    margin-bottom: 0;
+    position: relative;
+    text-transform: capitalize;
+}
+.page_title h1::before {
+    background: #c0392b;
+    width: 70px;
+    height: 2px;
+    position: absolute;
+    content: '';
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.page_title h1::after {
+    position: absolute;
+    content: '';
+    background: #fbc531;
+    width: 30px;
+    height: 2px;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/*Menu starts*/
+.menu_tab {
+    margin: 0 auto;
+    justify-content: center;
+}
+.nav-item {
+    display: inline-block;
+    text-align: center;
+}
+.nav-tabs .nav-link{
+    transition: .3s;
+}
+.nav-tabs .nav-link.active {
+    background: #c0392b;
+    color: #fff;
+    font-weight: 700;
+    border: 1px solid #c0392b;
+    text-transform: capitalize;
+}
+.nav-link {
+    color: #000;
+}
+.nav-tabs .nav-link:hover {
+    background: #c0392b;
+    color: #fff;
+    border: 1px solid #c0392b;
+}
+.single_menu {
+    position: relative;
+    margin-bottom: 75px;
+    transition: .3s;
+    height: 400px;
+    padding-top:10%;
+    padding-bottom:10%;
+    border: 1px solid #eee;
+}
+.single_menu:hover {
+    transform: scale(1.05);
+}
+.single_menu img {
+    width: 40%;
+    position: absolute;
+    height: 300px;
+    transition: .3s;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.menu_content {
+    padding-left: 275px;
+    padding-right:10px
+}
+.menu_content h4 {
+    font-size: 25px;
+    font-weight: 300;
+    border-bottom: 1px dashed #c0392b;
+    line-height: 2;
+    text-transform: capitalize;
+}
+.menu_content h4 span {
+    font-size: 25px;
+    font-weight: 800;
+    float: right;
+    font-style: italic;
+    color: #c0392b;
+}
+.menu_content p {
+    font-weight: 200;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+.menu_btn.btn.btn-danger {
+    margin: 0 auto;
+    display: block;
+    width: 140px;
+}
+/*Menu ends*/
+.menu_btn.btn.btn-danger {
+	margin: 0 auto;
+	display: block;
+	width: 140px;
+}
+.btn.btn-danger {
+	background: #c0392b;
+	border: 1px solid #c0392b;
+	transition: .3s;
+	position: relative;
+	z-index: 1;
+	text-transform: capitalize;
+	font-weight: 700;
+	overflow: hidden;
+	padding: 15px 25px;
+}
+.btn.btn-danger::before {
+	position: absolute;
+	content: '';
+	background: #e74c3c;
+	width: 100%;
+	height: 100%;
+	left: -100%;
+	top: 100%;
+	transition: .3s;
+	z-index: -1;
+}
+.btn.btn-danger:hover:before{
+    top: 0;
+    left: 0;
+}
+a {
+    color: black;
+    text-decoration: none;
+}
+.back {
+    width:275px;
+    height:275px;
+    position: absolute;
+    top: 0;
+    background-color:#c0392b;
+    border: 1px solid #eee;
+    color:#fff;
+}
+.back:hover {
+    color: black;
+}
+.back i {
+    font-size: 200px;
+}
+
+.cart {
+    width:275px;
+    height:275px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color:#c0392b;
+    border: 1px solid #eee;
+    text-align: right;
+    color:#fff;
+    display:none;
+}
+
+.cart i {
+    font-size: 200px;
+}
+
+.back:hover, .cart:hover {
+    background-color: #ffffff;
+    color: #c0392b;
+}
+
+.cart-quantity {
+    font-size: 32px;
+    position: absolute;
+    right: 1%;
+    top: 1%;
+    border-radius: 50%;
+    background-color: white;
+    padding: 10px 20px;
+    color: #c0392b;
+}
+
+.btn-menu {
+    padding: 30px;
+    width: 100%;
+    font-size: 1.25em;
+    text-transform: uppercase;
+}
+.modal-title {
+    text-transform:uppercase;
+}
+
+.modal-header {
+    background: #c0392b;
+    color: white;
+}
+.modal-content {
+    height:100%;
+}
+.modal-body {
+    background: #c0392b;
+}
+.modal-dialog {
+    max-width:none;
+    height:100%;
+    margin:none !important;
+}
+.modal-title {
+    text-align:center;
+    width:100%;
+}
+.selectMethod {
+    height: 100%;
+}
+
+.selectMethod button{
+    height: 100%;
+    width: 47%;
+    font-size:1.5em;
+    background: white;
+    border: 1px solid #c0392b;
+    color: #c0392b;
+    text-transform:uppercase;
+}
+
+.dineIn {
+    margin-left:2.5%
+}
+
+.takeOut {
+    margin-left:1%;
+}
+a:hover {
+    color:black;
+}

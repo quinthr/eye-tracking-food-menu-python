@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jollibee Menu</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet">
+    <link href='./static/css/bootstrap.css' rel='stylesheet'>
+    <link href="./static/css/style.css" rel="stylesheet">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<section id="our_menu">
+    <div class="container-custom">
+        <div class="modal" role="dialog" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Dine In or Take Out?</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="selectMethod">
+                            <button onClick="selectMethod('Dine In');" class="dineIn">Dine In</button>
+                            <button onClick="selectMethod('Take Out');" class="takeOut">Take Out</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page_title text-center mb-4">
+                    <img src="./static/images/jollibee-logo2.png" style="width:100px; height:75px;">
+                    <h1>Jollibee menu</h1>
+                    <div class="single_line"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="tab-content col-lg-12" id="myTabContent">
+                <div aria-labelledby="breakfast-tab" class="tab-pane fade show active" id="breakfast" role="tabpanel">
+                    <div class="row">
+                        {% for category in categories %}
+                        <div class="col-md-4">
+                            <a href="{{ url_for('category', categoryId=category.categoryId) }}">
+                                <div class="single_menu" id="{{ category.categoryId }}">
+                                    <img alt="{{ category.name }}" src="./static/images/{{ category.image }}">
+                                    <div class="menu_content">
+                                        <h4>{{ category.name }} <span></span></h4>
+                                        <p>{{ category.description }}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- partial -->
+<script src="./static/js/index.js" type="text/javascript"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js'></script>
+</body>
+</html>

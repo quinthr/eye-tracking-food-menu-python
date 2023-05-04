@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<meta charset="UTF-8">
+	<title>{{ category.name }} Menu</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link rel='stylesheet' href='./static/css/bootstrap.css'>
+	<link rel="stylesheet" href="./static/css/style.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<section id="our_menu" class="pt-5 pb-5">
+		<div class="container-custom">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="page_title text-center mb-4">
+						<img src="./static/images/jollibee-logo2.png" style="width:100px; height:75px;">
+						<h1>{{ category.name }} menu</h1>
+						<div class="single_line"></div>
+					</div>
+				</div>
+			</div>
+            <div class="row">
+                <a href="{{ url_for('index') }}" class="back">
+                    <i class="fa-solid fa-arrow-left" alt="Back to Home"></i>
+                </a>
+				<a href="#" class="cart">
+                    <i class="fa-solid fa-basket-shopping" alt="Cart"></i><span class="cart-quantity"></span>
+                </a>
+        	</div>
+			<div class="row">
+				<div class="tab-content col-lg-12" id="myTabContent">
+					<div class="tab-pane fade show active" id="breakfast" role="tabpanel" aria-labelledby="breakfast-tab">
+						<div class="row">
+							{% for product in products %}
+							<div class="col-md-4 products">
+								<a href="#">
+									<div class="single_menu" id="{{ product.productId }}">
+										<img src="./static/images/{{ product.image }}" alt="{{ product.name }}">
+										<div class="menu_content">
+											<h4>{{ product.name }}  <span></span></h4>
+											<p>{{ product.description }}</p>
+											<button class="btn btn-danger btn-menu">Order Now</button>
+										</div>
+									</div>
+								</a>
+							</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+<!-- partial -->
+	<script src="./static/js/script.js" type="text/javascript"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js'></script>
+</body>
+</html>

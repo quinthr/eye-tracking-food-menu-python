@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Received</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet">
+    <link href="./static/css/order.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="container">
+    <div class="receipt">
+        <div class="site-logo">
+            <img src="./static/images/jollibee-logo2.png">
+        </div>
+        <h2 class="receipt__title">Thank you.</h2>
+        <p class="receipt__subtitle">Your order is on its way. Here is your receipt:</p>
+        <ul class="receipt__lines">
+            {% for product in products %}
+            <li class="receipt__line">
+                <span class="receipt__line__item">{{ product.product.name }}</span>
+                <span class="receipt__line__quantity">{{ product.quantity }}</span>
+                <span class="receipt__line__price">₱ {{ product.product.price*product.quantity }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+        <p class="receipt__total">
+            <span class="receipt__total__item">Total</span>
+            <span class="receipt__total__price">₱ {{ total }}</span>
+            <h3 class="countdown-text">
+              Redirecting to Homepage after <span id="countdown">1m 0s</span>
+            </h3>
+        </p>
+    </div>
+</div>
+<!-- partial -->
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script src="./static/js/order.js"></script>
+
+</body>
+</html>
