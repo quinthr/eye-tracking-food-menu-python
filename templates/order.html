@@ -18,8 +18,7 @@
         <ul class="receipt__lines">
             {% for product in products %}
             <li class="receipt__line">
-                <span class="receipt__line__quantity">{{ product.quantity }}</span>
-                <span class="receipt__line__dash"> - </span>
+                <span class="receipt__line__quantity">{{ product.quantity }} <span class="receipt__line__quantity-dash">-</span></span>
                 <span class="receipt__line__item">{{ product.product.name }}</span>
                 <span class="receipt__line__price">₱ {{ product.product.price*product.quantity }}</span>
             </li>
