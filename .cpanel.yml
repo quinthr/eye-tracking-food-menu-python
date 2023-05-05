@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/pltliont/public_html/eye-tracking-look-to-speak-web.com
+    - /bin/cp main.py $DEPLOYPATH
+    - /bin/cp -R * $DEPLOYPATH

@@ -1,0 +1,6 @@
+Flask==2.3.2
+flask_cors==3.0.10
+flask_sqlalchemy==3.0.3
+libsass==0.22.0
+numpy==1.24.3
+SQLAlchemy==2.0.12
