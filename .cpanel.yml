@@ -1,6 +1,6 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/pltliont/public_html/eye-tracking-look-to-speak-web.com
+    - export DEPLOYPATH=/home/pltliont/public_html/eye-tracking-food-menu.com
     - /bin/cp main.py $DEPLOYPATH
     - /bin/cp -R * $DEPLOYPATH
