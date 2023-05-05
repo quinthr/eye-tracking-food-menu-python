@@ -161,6 +161,7 @@ a {
     background-color:#c0392b;
     border: 1px solid #eee;
     color:#fff;
+    z-index: 300;
 }
 .back:hover {
     color: black;
@@ -254,4 +255,8 @@ a {
 }
 a:hover {
     color:black;
+}
+
+#webgazerVideoContainer{
+    z-index:200;
 }
