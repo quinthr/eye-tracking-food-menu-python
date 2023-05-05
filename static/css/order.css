@@ -39,6 +39,9 @@ a {
   font-weight: 300;
   font-size: 18px;
 }
+.receipt__line__quantity {
+    margin-right:-7.5em;
+}
 .receipt__lines {
   margin-top: 50px;
   padding: 30px;
