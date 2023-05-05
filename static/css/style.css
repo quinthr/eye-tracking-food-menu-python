@@ -171,14 +171,14 @@ a {
 }
 
 .cart {
-    width:275px;
+    width:500px;
     height:275px;
     position: absolute;
     top: 0;
     right: 0;
     background-color:#c0392b;
     border: 1px solid #eee;
-    text-align: right;
+    text-align: center;
     color:#fff;
     display:none;
 }
@@ -195,7 +195,7 @@ a {
 .cart-quantity {
     font-size: 32px;
     position: absolute;
-    right: 1%;
+    right: 20%;
     top: 1%;
     border-radius: 50%;
     background-color: white;
