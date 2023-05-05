@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect
 from flask_cors import CORS
 from sassutils.wsgi import SassMiddleware
 from decimal import *
-import os, json, numpy
+import os, json, numpy, pymysql
 from db import db
 from models.category import Category
 from models.product import Product
