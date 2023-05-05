@@ -28,23 +28,6 @@ app.wsgi_app = SassMiddleware(app.wsgi_app, {
 
 db.init_app(app)
 
-@app.errorhandler(404)
-def page_not_found(e):
-    return redirect('/')
-
-@app.errorhandler(401)
-def unauthorized_page(e):
-    return redirect('/')
-
-@app.errorhandler(500)
-def internal_app_error(e):
-    return redirect('/')
-
-
-app.register_error_handler(404, page_not_found)
-app.register_error_handler(401, unauthorized_page)
-app.register_error_handler(500, internal_app_error)
-
 with app.app_context():
     db.create_all()
     db.session.commit()
