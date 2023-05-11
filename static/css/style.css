@@ -192,6 +192,11 @@ a {
     color: #c0392b;
 }
 
+.page_title img {
+    width: 150px;
+    height:112.5px;
+}
+
 .cart-quantity {
     font-size: 32px;
     position: absolute;
