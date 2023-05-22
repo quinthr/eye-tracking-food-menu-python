@@ -1,5 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Oxygen&family=Oxygen+Mono&family=Roboto:wght@700&display=swap');
 
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+    opacity:0;
+  }
+  25% {
+    transform: translateX(0);
+    opacity:1;
+  }
+  50% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+
 * {
     font-family: "Roboto";
     font-weight: 700;
@@ -264,4 +284,26 @@ a:hover {
 
 #webgazerVideoContainer{
     z-index:200;
+}
+
+.notification-default {
+    display:none;
+}
+.notification {
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 1em;
+    opacity:0;
+}
+
+.slide-in {
+  animation-name: slideIn;
+  animation-duration:3s;
+  opacity:1;
+}
+
+.slide-in button {
+    background: black;
 }
