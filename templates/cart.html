@@ -39,16 +39,22 @@
 <div class="shopping-cart">
 
     <div class="column-labels">
+        <label class="product-removal">Remove</label>
         <label class="product-image">Image</label>
         <label class="product-details">Product</label>
         <label class="product-detail-price">Price</label>
         <label class="product-quantity">Quantity</label>
-        <label class="product-removal">Remove</label>
+
         <label class="product-line-price">Total</label>
     </div>
     <form action="{{ url_for('order') }}" method="POST">
         {% for product in products %}
         <div class="product">
+            <div class="product-removal">
+                <button class="remove-product" type="button" id="{{ product.product.productId }}">
+                    Remove
+                </button>
+            </div>
             <div class="product-image">
                 <img alt="{{ product.product.name }}" src="./static/images/{{ product.product.image }}">
             </div>
@@ -60,11 +66,6 @@
             </div>
             <div class="product-quantity">
                 <input min="1" name="quantity" readonly type="number" value="{{ product.quantity }}">
-            </div>
-            <div class="product-removal">
-                <button class="remove-product" type="button" id="{{ product.product.productId }}">
-                    Remove
-                </button>
             </div>
             <div class="product-line-price">{{ product.product.price*product.quantity }}</div>
         </div>
