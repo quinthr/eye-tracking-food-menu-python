@@ -17,8 +17,8 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['CORS_HEADERS'] = 'Content-Type'
 CORS(app)
 app.config['SECRET_KEY'] = 'jollibeeFoodMenu'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:1234@localhost:3306/foodmenu'
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://pltliont_eyetracking_foodMenu:pltliont_eyetracking_foodMenu@localhost:3306/pltliont_eyetracking_foodMenu'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:1234@localhost:3306/foodmenu'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://pltliont_eyetracking_foodMenu:pltliont_eyetracking_foodMenu@localhost:3306/pltliont_eyetracking_foodMenu'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = os.urandom(24)
 app.config.from_object(__name__)
