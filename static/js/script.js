@@ -17,7 +17,7 @@ function getCartProducts() {
 function openCart() {
     let data = getCartProducts();
     data2 = JSON.parse(localStorage.getItem("cartProducts"));
-    let url = '/cart?' + encodeURIComponent(data2);
+    let url = '/cart/1?' + encodeURIComponent(data2);
     window.location.href = url;
 }
 

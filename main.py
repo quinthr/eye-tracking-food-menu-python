@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 from flask_cors import CORS
 from sassutils.wsgi import SassMiddleware
 from decimal import *
@@ -17,8 +17,8 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['CORS_HEADERS'] = 'Content-Type'
 CORS(app)
 app.config['SECRET_KEY'] = 'jollibeeFoodMenu'
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:1234@localhost:3306/foodmenu'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://pltliont_eyetracking_foodMenu:pltliont_eyetracking_foodMenu@localhost:3306/pltliont_eyetracking_foodMenu'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:1234@localhost:3306/foodmenu'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://pltliont_eyetracking_foodMenu:pltliont_eyetracking_foodMenu@localhost:3306/pltliont_eyetracking_foodMenu'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = os.urandom(24)
 app.config.from_object(__name__)
@@ -122,19 +122,71 @@ with app.app_context():
 
 @app.route('/')
 def index():
-    categories = Category.query.all()
-    return render_template('index.html', error=None, categories=categories)
+    page = 1
+    per_page = 3
+    categories = Category.query.paginate(page=page,per_page=per_page,error_out=False)
+    return render_template('index.html', error=None, categories=categories, page=page)
 
-@app.route('/<categoryId>')
-def category(categoryId):
+@app.route('/next')
+def nextPage():
+    page = 2
+    per_page = 3
+    categories = Category.query.paginate(page=page,per_page=per_page,error_out=False)
+    return render_template('index.html', error=None, categories=categories, page=page)
+
+
+@app.route('/<categoryId>/<page>')
+def category(categoryId, page):
+    page=int(page)
     category = Category.query.filter_by(categoryId=categoryId).first()
     if category is None:
         return redirect('/')
-    products = Product.query.filter_by(categoryId=categoryId).all()
-    return render_template('category.html', error=None, category=category, products=products)
+    products = Product.query.filter_by(categoryId=categoryId).paginate(page=int(page),per_page=3,error_out=False)
+    length = products.total
+    print(length)
+    return render_template('category.html', error=None, category=category, products=products, page=page, categoryId=categoryId)
 
-@app.route('/cart')
-def cart():
+@app.route('/cart/<page>')
+def cart(page):
+    products = []
+    serializedData = request.args
+    data = json.dumps(serializedData)
+    dataDict = json.loads(data)
+    total = 0
+    next=True
+    back=True
+    page = int(page)
+    pageNum = page
+    if len(dataDict) == 0:
+        return redirect('/')
+    dataString = list(dataDict.keys())[0]
+    dataArray = dataString.split(",")
+    array = numpy.array(dataArray)
+    uniqueProducts, counts = numpy.unique(array, return_counts=True)
+    for id, count in zip(uniqueProducts, counts):
+        productDict = {}
+        product = Product.query.filter_by(productId=id).first()
+        subTotal = product.price*count
+        productDict['product'] = product
+        print(product.name)
+        productDict['quantity'] = count
+        productDict['subTotal'] = subTotal
+        total = total + subTotal
+        products.append(productDict)
+    if page == 1:
+        page = 0
+        back=False
+    else:
+        multipler = page - 1
+        page = 2 * multipler
+    if not products[page:page+2]:
+        return redirect(url_for('checkout'))
+    if page+3 > len(products):
+        next=False
+    return render_template('cart.html', error=None, products=products[page:page+2], total=total, next=next, back=back, pageNum=pageNum)
+
+@app.route('/checkout')
+def checkout():
     products = []
     serializedData = request.args
     data = json.dumps(serializedData)
@@ -153,7 +205,7 @@ def cart():
         productDict['quantity'] = count
         products.append(productDict)
     print(products)
-    return render_template('cart.html', error=None, products=products)
+    return render_template('checkout.html', error=None, products=products)
 
 @app.route('/order', methods=['POST'])
 def order():

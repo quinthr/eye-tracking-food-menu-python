@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <title>Order Received</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet">
-    <link href="./static/css/order.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/order.css') }}" rel='stylesheet'>
 </head>
 <body>
 <div class="container">
     <div class="receipt">
         <div class="site-logo">
-            <img src="./static/images/jollibee-logo2.png">
+            <img src="{{ url_for('static', filename='images/jollibee-logo2.png' ) }}">
         </div>
         <h2 class="receipt__title">Thank you.</h2>
         <p class="receipt__subtitle">Your order is on its way. Here is your receipt:</p>
@@ -35,7 +35,7 @@
 <!-- partial -->
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
-<script src="./static/js/order.js"></script>
+<script src="{{ url_for('static', filename='js/order.js') }}"></script>
 
 </body>
 </html>

@@ -5,8 +5,8 @@
 	<title>{{ category.name }} Menu</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-	<link rel='stylesheet' href='./static/css/bootstrap.css'>
-	<link rel="stylesheet" href="./static/css/style.css">
+	<link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel='stylesheet'>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
 	<style>
 		#webgazerVideoContainer {
 			left: 15% !important;
@@ -20,16 +20,27 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="page_title text-center mb-4">
-						<img src="./static/images/jollibee-logo2.png">
+						<img src="{{ url_for('static', filename='images/jollibee-logo2.png' ) }}">
 						<h1>{{ category.name }} menu</h1>
 						<div class="single_line"></div>
 					</div>
 				</div>
 			</div>
             <div class="row">
-                <a href="{{ url_for('index') }}" class="back">
-                    <i class="fa-solid fa-arrow-left" alt="Back to Home"></i>
+				{% if products.has_prev %}
+                <a href="{{ url_for('category', categoryId=categoryId, page=products.prev_num) }}" class="back">
+                    <i class="fa-solid fa-arrow-left" alt="Previous Page"></i>
                 </a>
+				{% else %}
+				<a href="{{ url_for('index') }}" class="back">
+                    <i class="fa-solid fa-house" alt="Back to Home"></i>
+                </a>
+				{% endif %}
+				{% if products.has_next %}
+                <a href="{{ url_for('category', categoryId=categoryId, page=products.next_num) }}" class="forward">
+                    <i class="fa-solid fa-arrow-right" alt="Next Page"></i>
+                </a>
+				{% endif %}
 				<a href="#" class="cart">
                     <i class="fa-solid fa-basket-shopping" alt="Cart"></i><span class="cart-quantity"></span>
                 </a>
@@ -38,11 +49,12 @@
 				<div class="tab-content col-lg-12" id="myTabContent">
 					<div class="tab-pane fade show active" id="breakfast" role="tabpanel" aria-labelledby="breakfast-tab">
 						<div class="row">
+							{% if products.items|length == 3 %}
 							{% for product in products %}
 							<div class="col-md-4 products">
 								<a href="#">
 									<div class="single_menu" id="{{ product.productId }}">
-										<img src="./static/images/{{ product.image }}" alt="{{ product.name }}">
+										<img src="{{ url_for('static', filename='images/'+product.image ) }}" alt="{{ product.name }}">
 										<div class="menu_content">
 											<h4>{{ product.name }}  <span></span></h4>
 											<p>{{ product.description }}</p>
@@ -52,6 +64,37 @@
 								</a>
 							</div>
 							{% endfor %}
+							{% elif products.items|length == 2 %}
+							{% for product in products %}
+							<div class="col-md-6 products">
+								<a href="#">
+									<div class="single_menu" id="{{ product.productId }}">
+										<img src="{{ url_for('static', filename='images/'+product.image ) }}" alt="{{ product.name }}">
+										<div class="menu_content">
+											<h4>{{ product.name }}  <span></span></h4>
+											<p>{{ product.description }}</p>
+											<button class="btn btn-danger btn-menu">Order Now</button>
+										</div>
+									</div>
+								</a>
+							</div>
+							{% endfor %}
+							{% else %}
+							{% for product in products %}
+							<div class="col-md-12 products">
+								<a href="#">
+									<div class="single_menu" id="{{ product.productId }}">
+										<img src="{{ url_for('static', filename='images/'+product.image ) }}" alt="{{ product.name }}">
+										<div class="menu_content">
+											<h4>{{ product.name }}  <span></span></h4>
+											<p>{{ product.description }}</p>
+											<button class="btn btn-danger btn-menu">Order Now</button>
+										</div>
+									</div>
+								</a>
+							</div>
+							{% endfor %}
+							{% endif %}
 						</div>
 					</div>
 				</div>
@@ -62,7 +105,7 @@
 		</div>
 	</section>
 <!-- partial -->
-	<script src="./static/js/script.js" type="text/javascript"></script>
+	<script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js'></script>
 </body>

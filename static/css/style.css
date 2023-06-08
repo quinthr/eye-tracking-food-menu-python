@@ -41,6 +41,7 @@
     margin-bottom: 0;
     position: relative;
     text-transform: capitalize;
+    padding: 0  40%;
 }
 .page_title h1::before {
     background: #c0392b;
@@ -110,7 +111,7 @@
     border-radius: 5px;
 }
 .menu_content {
-    padding-left: 275px;
+    padding-left: 45%;
     padding-right:10px
 }
 .menu_content h4 {
@@ -190,12 +191,70 @@ a {
     font-size: 200px;
 }
 
+.forward {
+    width:275px;
+    height:275px;
+    position: absolute;
+    top: 0;
+    right:0;
+    background-color:#c0392b;
+    border: 1px solid #eee;
+    color:#fff;
+    z-index: 1;
+}
+.forward:hover {
+    color: #c0392b;
+    background: white;
+}
+.forward i {
+    font-size: 200px;
+    float: right;
+}
+
+.forward2 {
+    width:275px;
+    height:275px;
+    position: absolute;
+    top: 0;
+    right:0;
+    background-color:#c0392b;
+    border: 1px solid #eee;
+    color:#fff;
+    z-index: 300;
+}
+.forward2:hover {
+    color: #c0392b;
+    background: white;
+}
+.forward2 i {
+    font-size: 200px;
+    float: right;
+}
+
+.back2 {
+    width:275px;
+    height:275px;
+    position: absolute;
+    top: 0;
+    background-color:#c0392b;
+    border: 1px solid #eee;
+    color:#fff;
+    z-index: 300;
+}
+.back2:hover {
+    color: #c0392b;
+    background: white;
+}
+.back2 i {
+    font-size: 200px;
+}
+
 .cart {
     width:500px;
     height:275px;
     position: absolute;
     top: 0;
-    right: 0;
+    right: 15%;
     background-color:#c0392b;
     border: 1px solid #eee;
     text-align: center;
@@ -306,4 +365,17 @@ a:hover {
 
 .slide-in button {
     background: black;
+}
+.tab-content {
+    height: 650px;
+    align-items: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    display: flex;
+}
+.tab-pane {
+    width:100%;
+}
+.col-md-12 {
+    padding: 0% 25%;
 }
