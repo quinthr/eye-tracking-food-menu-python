@@ -163,9 +163,15 @@ def cart(page):
     dataArray = dataString.split(",")
     array = numpy.array(dataArray)
     uniqueProducts, counts = numpy.unique(array, return_counts=True)
+    print(uniqueProducts)
     for id, count in zip(uniqueProducts, counts):
         productDict = {}
+        print(id)
+        if id == 'yumburger-cheesy':
+            print('yumburger-cheesy')
         product = Product.query.filter_by(productId=id).first()
+        print(Product.query.filter_by(productId=id).first())
+        print(product)
         subTotal = product.price*count
         productDict['product'] = product
         print(product.name)

@@ -47,35 +47,32 @@ function updateQuantity(quantityInput)
 }
 
 function removeProduct(productId) {
-    console.log(productId);
     cartProducts = cartProducts.filter(string => string !== productId);
-    console.log(cartProducts);
-    console.log(cartProducts.length)
-    if(cartProducts.length == 0) {
+    if(cartProducts === undefined || cartProducts.length == 0) {
         localStorage.removeItem('cartProducts');
     }
     else {
         localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
     }
-
 }
 
 function getCartProducts() {
     if(localStorage.getItem("cartProducts")) {
         cartProducts = localStorage.getItem("cartProducts");
+        console.log(cartProducts);
     }
     return cartProducts
 }
 
 function openCart() {
-    let data = getCartProducts();
-    let url = '/';
-    if (localStorage.getItem("cartProducts")) {
-        data2 = JSON.parse(localStorage.getItem("cartProducts"));
-        url = '/cart?' + encodeURIComponent(data2);
+    let data = JSON.parse(localStorage.getItem("cartProducts"));
+    let url = '/cart/1?' + encodeURIComponent(data);
+    if(cartProducts === undefined || cartProducts.length == 0) {
+        url = '/';
     }
     window.location.href = url;
 }
+
 
 
 /* Remove item from cart */

@@ -15,9 +15,8 @@ function getCartProducts() {
 }
 
 function openCart() {
-    let data = getCartProducts();
-    data2 = JSON.parse(localStorage.getItem("cartProducts"));
-    let url = '/cart/1?' + encodeURIComponent(data2);
+    let data = JSON.parse(localStorage.getItem("cartProducts"));
+    let url = '/cart/1?' + encodeURIComponent(data);
     window.location.href = url;
 }
 
