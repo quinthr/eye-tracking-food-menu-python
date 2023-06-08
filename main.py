@@ -125,14 +125,14 @@ def index():
     page = 1
     per_page = 3
     categories = Category.query.paginate(page=page,per_page=per_page,error_out=False)
-    return render_template('index.html', error=None, categories=categories, page=page)
+    return render_template('index.html', error=None, categories=categories, page=page, next=False)
 
 @app.route('/next')
 def nextPage():
     page = 2
     per_page = 3
     categories = Category.query.paginate(page=page,per_page=per_page,error_out=False)
-    return render_template('index.html', error=None, categories=categories, page=page)
+    return render_template('index.html', error=None, categories=categories, page=page, next=True)
 
 
 @app.route('/<categoryId>/<page>')
