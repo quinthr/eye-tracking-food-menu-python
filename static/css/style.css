@@ -175,8 +175,8 @@ a {
     text-decoration: none;
 }
 .back {
-    width:275px;
-    height:275px;
+    width:300px;
+    height:300px;
     position: absolute;
     top: 0;
     background-color:#c0392b;
@@ -192,8 +192,8 @@ a {
 }
 
 .forward {
-    width:275px;
-    height:275px;
+    width:300px;
+    height:300px;
     position: absolute;
     top: 0;
     right:0;
@@ -212,8 +212,8 @@ a {
 }
 
 .forward2 {
-    width:275px;
-    height:275px;
+    width:300px;
+    height:300px;
     position: absolute;
     top: 0;
     right:0;
@@ -232,8 +232,8 @@ a {
 }
 
 .back2 {
-    width:275px;
-    height:275px;
+    width:300px;
+    height:300px;
     position: absolute;
     top: 0;
     background-color:#c0392b;
@@ -251,7 +251,7 @@ a {
 
 .cart {
     width:500px;
-    height:275px;
+    height:300px;
     position: absolute;
     top: 0;
     right: 15%;
