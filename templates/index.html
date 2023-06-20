@@ -30,8 +30,8 @@
                     </div>
                     <div class="modal-body">
                         <div class="selectMethod">
-                            <button onClick="selectMethod('Dine In');" class="dineIn">Dine In</button>
-                            <button onClick="selectMethod('Take Out');" class="takeOut">Take Out</button>
+                            <button onClick="selectMethod('Dine In');" class="webgazer-clickable dineIn">Dine In</button>
+                            <button onClick="selectMethod('Take Out');" class="webgazer-clickable takeOut">Take Out</button>
                         </div>
                     </div>
                 </div>
@@ -48,19 +48,19 @@
         </div>
         {% if page == 1 %}
         <div class="row">
-            <a class="forward" href="{{ url_for('nextPage') }}">
+            <a class="webgazer-clickable forward" href="{{ url_for('nextPage') }}">
                 <i alt="Next Page" class="fa-solid fa-arrow-right"></i>
             </a>
         </div>
         {% else %}
         <div class="row">
-            <a class="back" href="{{ url_for('index') }}">
+            <a class="webgazer-clickable back" href="{{ url_for('index') }}">
                 <i alt="Back to Home" class="fa-solid fa-house"></i>
             </a>
         </div>
         {% endif %}
         <div class="row">
-				<a href="#" class="cart">
+				<a href="#" class="webgazer-clickable cart">
                     <i class="fa-solid fa-basket-shopping" alt="Cart"></i><span class="cart-quantity"></span>
                 </a>
         	</div>
@@ -70,7 +70,7 @@
                     <div class="row">
                         {% for category in categories %}
                         <div class="col-md-4">
-                            <a href="{{ url_for('category', categoryId=category.categoryId, page=1) }}">
+                            <a class="webgazer-clickable" href="{{ url_for('category', categoryId=category.categoryId, page=1) }}">
                                 <div class="single_menu" id="{{ category.categoryId }}">
                                     <img alt="{{ category.name }}" src="./static/images/{{ category.image }}">
                                     <div class="menu_content">

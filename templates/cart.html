@@ -31,20 +31,20 @@
     </div>
     <div class="row">
         {% if not back %}
-        <a class="back" href="{{ url_for('index') }}">
+        <a class="webgazer-clickable back" href="{{ url_for('index') }}">
             <i alt="Back to Home" class="fa-solid fa-house"></i>
         </a>
         {% else %}
-        <a class="back2" href="#">
+        <a class="webgazer-clickable back2" href="#">
             <i alt="Previous Page Home" class="fa-solid fa-arrow-left"></i>
         </a>
         {% endif %}
         {% if next %}
-        <a href="#" class="forward">
+        <a href="#" class="webgazer-clickable forward">
             <i class="fa-solid fa-arrow-right" alt="Next Page"></i>
         </a>
         {% else %}
-        <a href="#"  class="forward2">
+        <a href="#"  class="webgazer-clickable forward2">
             <i class="fa-solid fa-cash-register" alt="Checkout"></i>
         </a>
         {% endif %}
@@ -65,7 +65,7 @@
     {% for product in products %}
     <div class="product">
         <div class="product-removal">
-            <button class="remove-product" type="button" id="{{ product.product.productId }}">
+            <button class="webgazer-clickable remove-product" type="button" id="{{ product.product.productId }}">
                 Remove
             </button>
         </div>
@@ -91,7 +91,7 @@
                 <div class="totals-value" id="cart-total">{{ total }}</div>
             </div>
         </div>
-        <button class="checkout" type="submit">Checkout</button>
+        <button class="webgazer-clickable checkout" type="submit">Checkout</button>
     </div>
 </div>
     <!-- partial -->

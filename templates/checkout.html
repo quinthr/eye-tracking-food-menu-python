@@ -30,7 +30,7 @@
         </div>
     </div>
     <div class="row">
-        <a class="back2" href="#">
+        <a class="webgazer-clickable back2" href="#">
             <i alt="Previous Page Home" class="fa-solid fa-arrow-left"></i>
         </a>
     </div>
@@ -41,7 +41,7 @@
         {% for product in products %}
         <div class="product" style="display:none">
             <div class="product-removal">
-                <button class="remove-product" type="button" id="{{ product.product.productId }}">
+                <button class="webgazer-clickable remove-product" type="button" id="{{ product.product.productId }}">
                     Remove
                 </button>
             </div>
@@ -67,7 +67,7 @@
                     <div class="totals-value" id="cart-total"></div>
                 </div>
             </div>
-            <button class="checkout" type="submit">Checkout</button>
+            <button class="webgazer-clickable checkout" type="submit">Checkout</button>
         </div>
     </form>
 </div>

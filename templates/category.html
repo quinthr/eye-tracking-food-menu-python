@@ -28,20 +28,20 @@
 			</div>
             <div class="row">
 				{% if products.has_prev %}
-                <a href="{{ url_for('category', categoryId=categoryId, page=products.prev_num) }}" class="back">
+                <a href="{{ url_for('category', categoryId=categoryId, page=products.prev_num) }}" class="webgazer-clickable back">
                     <i class="fa-solid fa-arrow-left" alt="Previous Page"></i>
                 </a>
 				{% else %}
-				<a href="{{ url_for('index') }}" class="back">
+				<a href="{{ url_for('index') }}" class="webgazer-clickable back">
                     <i class="fa-solid fa-house" alt="Back to Home"></i>
                 </a>
 				{% endif %}
 				{% if products.has_next %}
-                <a href="{{ url_for('category', categoryId=categoryId, page=products.next_num) }}" class="forward">
+                <a href="{{ url_for('category', categoryId=categoryId, page=products.next_num) }}" class="webgazer-clickable forward">
                     <i class="fa-solid fa-arrow-right" alt="Next Page"></i>
                 </a>
 				{% endif %}
-				<a href="#" class="cart">
+				<a href="#" class="webgazer-clickable cart">
                     <i class="fa-solid fa-basket-shopping" alt="Cart"></i><span class="cart-quantity"></span>
                 </a>
         	</div>
@@ -52,7 +52,7 @@
 							{% if products.items|length == 3 %}
 							{% for product in products %}
 							<div class="col-md-4 products">
-								<a href="#">
+								<a href="#" class="webgazer-clickable">
 									<div class="single_menu" id="{{ product.productId }}">
 										<img src="{{ url_for('static', filename='images/'+product.image ) }}" alt="{{ product.name }}">
 										<div class="menu_content">
@@ -67,7 +67,7 @@
 							{% elif products.items|length == 2 %}
 							{% for product in products %}
 							<div class="col-md-6 products">
-								<a href="#">
+								<a href="#" class="webgazer-clickable">
 									<div class="single_menu" id="{{ product.productId }}">
 										<img src="{{ url_for('static', filename='images/'+product.image ) }}" alt="{{ product.name }}">
 										<div class="menu_content">
@@ -82,7 +82,7 @@
 							{% else %}
 							{% for product in products %}
 							<div class="col-md-12 products">
-								<a href="#">
+								<a href="#" class="webgazer-clickable">
 									<div class="single_menu" id="{{ product.productId }}">
 										<img src="{{ url_for('static', filename='images/'+product.image ) }}" alt="{{ product.name }}">
 										<div class="menu_content">
